@@ -53,7 +53,7 @@ class GamePage extends StatelessWidget {
   Widget _buildBody(BuildContext context, AppData provider) {
     if (provider.gameState == GameState.gameStateRaw) {
       return _waitingForInit(context, provider);
-    } else if (provider.gameState == GameState.gameStateNotStarted) {
+    } else if (provider.gameState == GameState.gameStateReadyToStart) {
       return _showStartGame(context, provider);
     } else {
       return _gameScreen(context, provider);

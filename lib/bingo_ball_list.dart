@@ -9,7 +9,7 @@ class BingoBallList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color selectedColor = const Color.fromRGBO(0, 100, 0, 0.8);
-    Color unSelectedColor = Color.fromARGB(153, 115, 142, 14);
+    Color unSelectedColor = const Color.fromARGB(153, 115, 142, 14);
     Map<int, bool> flags = provider.flags;
     return GridView.count(
       crossAxisCount: 5,

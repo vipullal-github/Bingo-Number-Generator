@@ -10,17 +10,75 @@ class SpinnerWidget extends StatefulWidget {
 }
 
 class _SpinnerWidgetState extends State<SpinnerWidget> {
+  Future<void> _confirmResetGame(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Please confirm"),
+          content: const Text("Are you sure you want to reset the game?"),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  widget.provider.resetGame();
+                  Navigator.of(context).pop();
+                },
+                child: const Text("Yes")),
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text("No, play on!"))
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    String text = "";
+    bool nextButtonEnabled =
+        widget.provider.gameState == GameState.gamePausedForNextDraw;
+    TextStyle? ts =
+        Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 35);
+    if (widget.provider.gameState == GameState.gamePausedForNextDraw) {
+      text = "${widget.provider.getCurrentBallPicked()}";
+    }
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("00"),
+        Text(
+          text,
+          style: ts,
+        ),
         const SizedBox(
           width: 10,
         ),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: !nextButtonEnabled
+              ? null
+              : () {
+                  widget.provider.getNextBall();
+                },
           child: const Text("Next"),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Text(
+          widget.provider.getCounter(),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        ElevatedButton(
+          //style: Theme.of(context).buttonTheme.copyWith(color: Colors.red),
+          onPressed: () {
+            _confirmResetGame(context);
+            //widget.provider.resetGame();
+          },
+          child: const Text("Restart"),
         ),
       ],
     );
