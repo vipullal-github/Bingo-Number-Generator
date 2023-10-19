@@ -16,10 +16,11 @@ class BingoBallList extends StatelessWidget {
       children: List.generate(
         provider.ballsSet.length,
         (index) {
-          int idx = index + 1;
+          int idx = index + 1; // Numbers are 1 based.
           return Padding(
             padding: const EdgeInsets.all(6.0),
             child: CircleAvatar(
+                maxRadius: 32,
                 backgroundColor: flags[idx]! ? unSelectedColor : selectedColor,
                 child: Text("$idx")),
           );

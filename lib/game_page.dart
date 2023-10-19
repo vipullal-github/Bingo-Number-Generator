@@ -6,6 +6,9 @@ import 'package:provider/provider.dart';
 
 import 'app_data.dart';
 
+
+// copy funny BingoCalling from https://en.wikipedia.org/wiki/List_of_British_bingo_nicknames
+
 class GamePage extends StatelessWidget {
   const GamePage({super.key});
 
