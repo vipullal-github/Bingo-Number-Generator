@@ -11,18 +11,26 @@ class BingoBallList extends StatelessWidget {
     Color selectedColor = const Color.fromRGBO(0, 100, 0, 0.8);
     Color unSelectedColor = const Color.fromARGB(153, 115, 142, 14);
     Map<int, bool> flags = provider.flags;
-    return GridView.count(
-      crossAxisCount: 5,
+    return GridView.extent(
+      //crossAxisCount: 5,
+      maxCrossAxisExtent: 32.0,
+      crossAxisSpacing: 16.0,
+      mainAxisSpacing: 16.0,
       children: List.generate(
         provider.ballsSet.length,
         (index) {
           int idx = index + 1; // Numbers are 1 based.
-          return Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: CircleAvatar(
-                maxRadius: 32,
-                backgroundColor: flags[idx]! ? unSelectedColor : selectedColor,
-                child: Text("$idx")),
+          return Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: flags[idx]! ? unSelectedColor : selectedColor,
+            ),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Text("$idx"),
+              ),
+            ),
           );
         },
       ),

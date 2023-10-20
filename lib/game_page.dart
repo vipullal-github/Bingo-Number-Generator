@@ -1,11 +1,11 @@
 import 'package:bingo_app/bingo_ball_list.dart';
+import 'package:bingo_app/witty_text_widget.dart';
 import 'package:bingo_app/spinner_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 
 import 'app_data.dart';
-
 
 // copy funny BingoCalling from https://en.wikipedia.org/wiki/List_of_British_bingo_nicknames
 
@@ -46,6 +46,7 @@ class GamePage extends StatelessWidget {
           SpinnerWidget(
             provider: provider,
           ),
+          WittyTextWidget(provider: provider),
           Expanded(child: BingoBallList(provider: provider)),
         ],
       ),
