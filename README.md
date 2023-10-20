@@ -1,16 +1,7 @@
 # bingo_app
 
-A new Flutter project.
+This app will generate random numbers between 1 and 90 for a game of British Bingo. It should be easy to adapt it for the American version. 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Download the code and compile with the Flutter command line tool. I have tested it on Chrome and on Android. 
