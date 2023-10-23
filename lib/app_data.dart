@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'bingo_ball.dart';
 
 enum GameState {
@@ -102,8 +101,8 @@ Map<int, String> whittyQuotes = {
   84: "Give me more",
   85: "Staying alive",
   86: "Between the sticks",
-  87: "Two fat ladies",
-  88: "",
+  87: "",
+  88: "Two fat ladies",
   89: "",
   90: "Top of the shop",
 };
@@ -119,8 +118,8 @@ class AppData with ChangeNotifier {
   Map<int, bool> flags =
       {}; // Using Map instead of BitSet because BitSet is not supported on Web
 
-  int _lastNumber = 0;
-  int get lastNumber => _lastNumber;
+  // int _lastNumber = 0;
+  // int get lastNumber => _lastNumber;
 
   String getWhittySaying() {
     int b = getCurrentBallPicked();
@@ -156,7 +155,9 @@ class AppData with ChangeNotifier {
     for (var e in ballsSet) {
       result += "${e.value} ";
     }
-    print(result);
+    if (kDebugMode) {
+      print(result);
+    }
   }
 
   // -------------------------------
